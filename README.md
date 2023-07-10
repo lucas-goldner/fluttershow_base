@@ -1,4 +1,4 @@
-# FlutterShow Base Plugin
+# FlutterShow Base
 
 [![pub package](https://img.shields.io/pub/v/flutter_airpods.svg)](https://pub.dev/packages/flutter_airpods)
 [![pub points](https://img.shields.io/pub/points/flutter_airpods?color=2E8B57&label=pub%20points)](https://pub.dev/packages/flutter_airpods/score)

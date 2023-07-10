@@ -11,7 +11,6 @@ analyzer:
     implicit-dynamic: false
   errors:
     invalid_annotation_target: ignore
-    public_member_api_docs: ignore
     invalid_use_of_protected_member: ignore
     implicit_dynamic_parameter: ignore
   exclude:
@@ -186,7 +185,7 @@ linter:
     - prefer_interpolation_to_compose_strings
     - prefer_mixin
     - prefer_null_aware_method_calls
-    - public_member_api_docs: false
+    - public_member_api_docs
     - secure_pubspec_urls
     - sort_pub_dependencies
     - sort_unnamed_constructors_first
