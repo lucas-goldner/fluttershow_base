@@ -6,7 +6,7 @@ class Arrow extends StatelessWidget {
     this.text, {
     super.key,
     this.color = Colors.black,
-    this.size = const Size(24.0, 24.0),
+    this.size = const Size(24, 24),
   });
 
   final String text;
