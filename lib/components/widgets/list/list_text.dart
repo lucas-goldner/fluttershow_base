@@ -24,7 +24,7 @@ class ListText extends StatelessWidget {
           padding: padding ?? EdgeInsets.zero,
           child: Text(
             bullet != null
-                ? '${bullet?.uniCode} + ${texts[index]}'
+                ? '${bullet?.uniCode} ${texts[index]}'
                 : texts[index],
             style: style,
             textAlign: textAlign,
