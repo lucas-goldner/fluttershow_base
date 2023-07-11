@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:fluttershow_base/components/widgets/transitions/fade_animation.dart';
+import 'package:fluttershow_base/fluttershow_base.dart';
 
 class AnimatableListText extends StatelessWidget {
   const AnimatableListText({
@@ -7,7 +7,7 @@ class AnimatableListText extends StatelessWidget {
     required this.currentIndex,
     this.style,
     this.textAlign,
-    this.dotted,
+    this.bullet,
     this.padding,
     super.key,
   });
@@ -16,7 +16,7 @@ class AnimatableListText extends StatelessWidget {
   final List<String> texts;
   final TextStyle? style;
   final TextAlign? textAlign;
-  final bool? dotted;
+  final ListBullets? bullet;
   final EdgeInsets? padding;
 
   @override
@@ -27,7 +27,9 @@ class AnimatableListText extends StatelessWidget {
           child: currentIndex >= index
               ? FadeAnimation(
                   Text(
-                    dotted ?? false ? '\u2022 ${texts[index]}' : texts[index],
+                    bullet != null
+                        ? '${bullet?.uniCode} ${texts[index]}'
+                        : texts[index],
                     style: style,
                     textAlign: textAlign,
                   ),

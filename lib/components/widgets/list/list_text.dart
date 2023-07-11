@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershow_base/components/model/enum/list_bullets.dart';
 
 class ListText extends StatelessWidget {
   const ListText({
     required this.texts,
     this.textAlign,
-    this.dotted,
+    this.bullet,
     this.padding,
     this.style,
     super.key,
@@ -13,7 +14,7 @@ class ListText extends StatelessWidget {
   final List<String> texts;
   final TextStyle? style;
   final TextAlign? textAlign;
-  final bool? dotted;
+  final ListBullets? bullet;
   final EdgeInsets? padding;
 
   @override
@@ -22,7 +23,9 @@ class ListText extends StatelessWidget {
         itemBuilder: (context, index) => Padding(
           padding: padding ?? EdgeInsets.zero,
           child: Text(
-            dotted ?? false ? '\u2022 ${texts[index]}' : texts[index],
+            bullet != null
+                ? '${bullet?.uniCode} + ${texts[index]}'
+                : texts[index],
             style: style,
             textAlign: textAlign,
           ),
