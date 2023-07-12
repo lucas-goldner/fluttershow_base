@@ -2,13 +2,13 @@ import 'package:flutter/cupertino.dart';
 
 class Arrow extends StatelessWidget {
   const Arrow({
-    required this.text,
+    this.text,
     this.color,
     this.size = const Size(24, 24),
     super.key,
   });
 
-  final String text;
+  final String? text;
   final Color? color;
   final Size size;
 
@@ -26,12 +26,15 @@ class Arrow extends StatelessWidget {
           ),
         ),
         const SizedBox(width: 8),
-        Text(
-          text,
-          style: TextStyle(
-            fontSize: size.height,
+        Visibility(
+          visible: text != null,
+          child: Text(
+            text ?? '',
+            style: TextStyle(
+              fontSize: size.height,
+            ),
           ),
-        ),
+        )
       ],
     );
   }
