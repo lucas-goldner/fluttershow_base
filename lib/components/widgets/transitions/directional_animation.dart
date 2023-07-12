@@ -3,10 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:fluttershow_base/components/model/enum/page_directional_animations.dart';
 
 class DirectionalAnimation extends StatefulWidget {
-  const DirectionalAnimation(
-    this.child,
-    this.delay,
-    this.animation, {
+  const DirectionalAnimation({
+    required this.child,
+    required this.delay,
+    required this.animation,
     Curve? curve,
     super.key,
   }) : _curve = curve ?? Curves.bounceIn;
@@ -60,6 +60,7 @@ class DirectionalAnimState extends State<DirectionalAnimation>
   Widget build(BuildContext context) {
     final animationController = _animController;
     final animOffset = _animOffset;
+
     if (animationController == null || animOffset == null) {
       return widget.child;
     }

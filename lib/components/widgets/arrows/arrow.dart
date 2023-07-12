@@ -1,16 +1,15 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
 
 class Arrow extends StatelessWidget {
-  const Arrow(
-    this.text, {
-    super.key,
-    this.color = Colors.black,
+  const Arrow({
+    required this.text,
+    this.color,
     this.size = const Size(24, 24),
+    super.key,
   });
 
   final String text;
-  final Color color;
+  final Color? color;
   final Size size;
 
   @override

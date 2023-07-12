@@ -2,9 +2,9 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class FadeAnimation extends StatefulWidget {
-  const FadeAnimation(
-    this.child,
-    this.delay, {
+  const FadeAnimation({
+    required this.child,
+    required this.delay,
     Curve? curve,
     super.key,
   }) : _curve = curve ?? Curves.bounceIn;
@@ -53,6 +53,7 @@ class FadeAnimState extends State<FadeAnimation> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     final animationController = _animController;
     final animOffset = _animOffset;
+
     if (animationController == null || animOffset == null) {
       return widget.child;
     }

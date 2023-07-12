@@ -4,7 +4,7 @@ import 'package:fluttershow_base/fluttershow_base.dart';
 class AnimatableListText extends StatelessWidget {
   const AnimatableListText({
     required this.texts,
-    required this.currentIndex,
+    required this.animationIndex,
     this.style,
     this.textAlign,
     this.bullet,
@@ -12,7 +12,7 @@ class AnimatableListText extends StatelessWidget {
     super.key,
   });
 
-  final int currentIndex;
+  final int animationIndex;
   final List<String> texts;
   final TextStyle? style;
   final TextAlign? textAlign;
@@ -24,16 +24,16 @@ class AnimatableListText extends StatelessWidget {
         itemCount: texts.length,
         itemBuilder: (context, index) => Padding(
           padding: padding ?? EdgeInsets.zero,
-          child: currentIndex >= index
+          child: animationIndex >= index
               ? FadeAnimation(
-                  Text(
+                  delay: 100,
+                  child: Text(
                     bullet != null
                         ? '${bullet?.uniCode} ${texts[index]}'
                         : texts[index],
                     style: style,
                     textAlign: textAlign,
                   ),
-                  100,
                 )
               : const SizedBox.shrink(),
         ),
