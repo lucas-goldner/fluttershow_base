@@ -9,8 +9,8 @@ class AnimatableWrapper extends StatelessWidget {
     this.animationArguments,
     super.key,
   }) : assert(
-          animationIndex != null && indexToShowAt != null,
-          'If animationIndex is set indexToShowAt also needs to be specified',
+          !(animationIndex != null && indexToShowAt == null),
+          'If animationIndex is set, indexToShowAt also needs to be specified',
         );
 
   final Widget child;
@@ -24,7 +24,7 @@ class AnimatableWrapper extends StatelessWidget {
       final currentIndex = animationIndex ?? 0;
       final indexToShow = indexToShowAt ?? 0;
 
-      Visibility(
+      return Visibility(
         visible: currentIndex >= indexToShow,
         child: animationArguments != null
             ? animationArguments?.animation.animateWidget(
