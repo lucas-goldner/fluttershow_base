@@ -9,7 +9,7 @@ class DirectionalAnimation extends StatefulWidget {
     required this.direction,
     Curve? curve,
     super.key,
-  }) : _curve = curve ?? Curves.bounceIn;
+  }) : _curve = curve ?? Curves.easeIn;
   final Widget child;
   final int delay;
   final Curve _curve;

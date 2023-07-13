@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:fluttershow_base/components/model/animation_arguments.dart';
+import 'package:fluttershow_base/components/model/enum/animations.dart';
 
 class AnimatableWrapper extends StatelessWidget {
   const AnimatableWrapper(
@@ -29,8 +30,12 @@ class AnimatableWrapper extends StatelessWidget {
         child: animationArguments != null
             ? animationArguments?.animation.animateWidget(
                   child,
-                  delay: animationArguments?.delay ?? 0,
-                  direction: animationArguments?.direction,
+                  animationArguments: animationArguments ??
+                      AnimationArguments(
+                        animationArguments?.animation ??
+                            Animations.fadeAnimation,
+                        delay: 0,
+                      ),
                 ) ??
                 const SizedBox.shrink()
             : child,

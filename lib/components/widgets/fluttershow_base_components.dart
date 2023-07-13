@@ -8,7 +8,6 @@ export 'arrow/curvy_arrow.dart';
 export 'layout/layout_body.dart';
 export 'layout/layout_footer.dart';
 export 'layout/layout_header.dart';
-export 'list/animatable_list_text.dart';
 export 'list/list_text.dart';
 export 'spacing/margins.dart';
 export 'spacing/paddings.dart';

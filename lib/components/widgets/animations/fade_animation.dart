@@ -7,7 +7,7 @@ class FadeAnimation extends StatefulWidget {
     required this.delay,
     Curve? curve,
     super.key,
-  }) : _curve = curve ?? Curves.bounceIn;
+  }) : _curve = curve ?? Curves.easeIn;
   final Widget child;
   final int delay;
   final Curve _curve;
