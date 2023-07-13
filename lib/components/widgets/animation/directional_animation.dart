@@ -21,8 +21,8 @@ class DirectionalAnimation extends StatefulWidget {
 
 class DirectionalAnimState extends State<DirectionalAnimation>
     with TickerProviderStateMixin {
-  AnimationController? _animController;
-  Animation<Offset>? _animOffset;
+  late AnimationController _animController;
+  late Animation<Offset> _animOffset;
   Timer? _timer;
 
   @override
@@ -33,6 +33,7 @@ class DirectionalAnimState extends State<DirectionalAnimation>
       vsync: this,
       duration: const Duration(milliseconds: 500),
     );
+
     _animController = animationController;
     final curve = CurvedAnimation(
       curve: widget._curve,
@@ -46,28 +47,20 @@ class DirectionalAnimState extends State<DirectionalAnimation>
   }
 
   void _animate() {
-    _animController?.forward();
+    _animController.forward();
   }
 
   @override
   void dispose() {
     _timer?.cancel();
-    _animController?.dispose();
+    _timer = null;
+    _animController.dispose();
     super.dispose();
   }
 
   @override
-  Widget build(BuildContext context) {
-    final animationController = _animController;
-    final animOffset = _animOffset;
-
-    if (animationController == null || animOffset == null) {
-      return widget.child;
-    }
-
-    return SlideTransition(
-      position: animOffset,
-      child: widget.child,
-    );
-  }
+  Widget build(BuildContext context) => SlideTransition(
+        position: _animOffset,
+        child: widget.child,
+      );
 }

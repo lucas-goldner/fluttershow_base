@@ -15,7 +15,6 @@ enum Animations {
         case Animations.fadeAnimation:
           return FadeAnimation(
             delay: animationArguments.delay,
-            curve: animationArguments.curve,
             child: child,
           );
         case Animations.directionalAnimation:

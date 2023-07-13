@@ -1,8 +1,8 @@
 /// Base components
 library fluttershow_base_components;
 
-export 'animations/directional_animation.dart';
-export 'animations/fade_animation.dart';
+export 'animation/directional_animation.dart';
+export 'animation/fade_animation.dart';
 export 'arrow/arrow.dart';
 export 'arrow/curvy_arrow.dart';
 export 'layout/layout_body.dart';

@@ -3,8 +3,8 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:fluttershow_base/components/model/animation_arguments.dart';
 import 'package:fluttershow_base/components/model/enum/animations.dart';
 import 'package:fluttershow_base/components/model/enum/directional_animation_direction.dart';
-import 'package:fluttershow_base/components/widgets/animations/directional_animation.dart';
-import 'package:fluttershow_base/components/widgets/animations/fade_animation.dart';
+import 'package:fluttershow_base/components/widgets/animation/directional_animation.dart';
+import 'package:fluttershow_base/components/widgets/animation/fade_animation.dart';
 
 void main() {
   test('test returns FadeAnimation when fadeAnimation is set', () {
