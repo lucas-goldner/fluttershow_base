@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershow_base/components/model/animation_arguments.dart';
-import 'package:fluttershow_base/components/model/enum/animations.dart';
+import 'package:fluttershow_base/components/widgets/fluttershow_base_components.dart';
 import 'package:fluttershow_base/fluttershow_base.dart';
 
 class ListText extends StatelessWidget {
