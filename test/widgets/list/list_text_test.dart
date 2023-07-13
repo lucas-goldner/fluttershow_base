@@ -4,15 +4,29 @@ import 'package:fluttershow_base/components/widgets/fluttershow_base_components.
 import 'package:fluttershow_base/fluttershow_base.dart';
 
 void main() {
+  Widget makeWidget({
+    required List<String> texts,
+    int? animationIndex,
+    AnimationArguments? animationArguments,
+    ListBullets? bullet,
+  }) =>
+      MaterialApp(
+        home: Scaffold(
+          body: ListText(
+            texts: texts,
+            key: const Key('AnimatedList'),
+            animationIndex: animationIndex,
+            animationArguments: animationArguments,
+            bullet: bullet,
+          ),
+        ),
+      );
+
   testWidgets('Test renders list text correctly', (tester) async {
     final texts = ['Text1', 'Text2', 'Text3'];
 
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: ListText(texts: texts),
-        ),
-      ),
+      makeWidget(texts: texts),
     );
 
     for (final text in texts) {
@@ -27,14 +41,7 @@ void main() {
     final texts = ['Text1', 'Text2', 'Text3'];
 
     await tester.pumpWidget(
-      MaterialApp(
-        home: Scaffold(
-          body: ListText(
-            texts: texts,
-            bullet: ListBullets.square,
-          ),
-        ),
-      ),
+      makeWidget(texts: texts, bullet: ListBullets.square),
     );
 
     for (final text in texts) {
@@ -47,21 +54,12 @@ void main() {
     final texts = ['Text1', 'Text2', 'Text3'];
     var animationIndex = 0;
 
-    Future<void> pupmpAnimatedList() async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: ListText(
-              texts: texts,
-              key: const Key('AnimatedList'),
-              animationIndex: animationIndex,
-            ),
-          ),
-        ),
-      );
-    }
-
-    await pupmpAnimatedList();
+    await tester.pumpWidget(
+      makeWidget(
+        texts: texts,
+        animationIndex: animationIndex,
+      ),
+    );
 
     for (final text in texts) {
       final textFinder = find.text(text);
@@ -70,7 +68,12 @@ void main() {
           find.byKey(Key('DefaultAnimatedListTextItem-${texts.indexOf(text)}'));
       expect(keyFinder, findsOneWidget);
       animationIndex++;
-      await pupmpAnimatedList();
+      await tester.pumpWidget(
+        makeWidget(
+          texts: texts,
+          animationIndex: animationIndex,
+        ),
+      );
     }
   });
 
@@ -78,22 +81,13 @@ void main() {
     final texts = ['Text1', 'Text2', 'Text3'];
     var animationIndex = 0;
 
-    Future<void> pupmpAnimatedList() async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: ListText(
-              texts: texts,
-              key: const Key('AnimatedList'),
-              animationIndex: animationIndex,
-              bullet: ListBullets.square,
-            ),
-          ),
-        ),
-      );
-    }
-
-    await pupmpAnimatedList();
+    await tester.pumpWidget(
+      makeWidget(
+        texts: texts,
+        animationIndex: animationIndex,
+        bullet: ListBullets.square,
+      ),
+    );
 
     for (final text in texts) {
       final textFinder = find.text('${ListBullets.square.uniCode} $text');
@@ -102,7 +96,13 @@ void main() {
           find.byKey(Key('DefaultAnimatedListTextItem-${texts.indexOf(text)}'));
       expect(keyFinder, findsOneWidget);
       animationIndex++;
-      await pupmpAnimatedList();
+      await tester.pumpWidget(
+        makeWidget(
+          texts: texts,
+          animationIndex: animationIndex,
+          bullet: ListBullets.square,
+        ),
+      );
     }
   });
 
@@ -117,22 +117,13 @@ void main() {
       direction: DirectionalAnimationDirection.top,
     );
 
-    Future<void> pupmpAnimatedList() async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: ListText(
-              texts: texts,
-              key: const Key('AnimatedList'),
-              animationIndex: animationIndex,
-              animationArguments: animArgs,
-            ),
-          ),
-        ),
-      );
-    }
-
-    await pupmpAnimatedList();
+    await tester.pumpWidget(
+      makeWidget(
+        texts: texts,
+        animationIndex: animationIndex,
+        animationArguments: animArgs,
+      ),
+    );
 
     for (final text in texts) {
       final textFinder = find.text(text);
@@ -145,7 +136,13 @@ void main() {
         findsNWidgets(texts.indexOf(text) + 1),
       );
       animationIndex++;
-      await pupmpAnimatedList();
+      await tester.pumpWidget(
+        makeWidget(
+          texts: texts,
+          animationIndex: animationIndex,
+          animationArguments: animArgs,
+        ),
+      );
     }
   });
 
@@ -160,23 +157,14 @@ void main() {
       direction: DirectionalAnimationDirection.top,
     );
 
-    Future<void> pupmpAnimatedList() async {
-      await tester.pumpWidget(
-        MaterialApp(
-          home: Scaffold(
-            body: ListText(
-              texts: texts,
-              key: const Key('AnimatedList'),
-              animationIndex: animationIndex,
-              animationArguments: animArgs,
-              bullet: ListBullets.square,
-            ),
-          ),
-        ),
-      );
-    }
-
-    await pupmpAnimatedList();
+    await tester.pumpWidget(
+      makeWidget(
+        texts: texts,
+        animationIndex: animationIndex,
+        bullet: ListBullets.square,
+        animationArguments: animArgs,
+      ),
+    );
 
     for (final text in texts) {
       final textFinder = find.text('${ListBullets.square.uniCode} $text');
@@ -189,7 +177,14 @@ void main() {
         findsNWidgets(texts.indexOf(text) + 1),
       );
       animationIndex++;
-      await pupmpAnimatedList();
+      await tester.pumpWidget(
+        makeWidget(
+          texts: texts,
+          animationIndex: animationIndex,
+          bullet: ListBullets.square,
+          animationArguments: animArgs,
+        ),
+      );
     }
   });
 }
