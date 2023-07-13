@@ -12,7 +12,7 @@ void main() {
                 const SizedBox(
                   key: Key('FooterItemKey'),
                 ),
-                flexUnits: flexUnits ?? LayoutFlexUnits.footer.flexUnits,
+                flexUnits: flexUnits,
               ),
             ],
           ),

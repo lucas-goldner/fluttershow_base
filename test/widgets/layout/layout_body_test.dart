@@ -12,7 +12,7 @@ void main() {
                 const SizedBox(
                   key: Key('BodyItemKey'),
                 ),
-                flexUnits: flexUnits ?? LayoutFlexUnits.body.flexUnits,
+                flexUnits: flexUnits,
               ),
             ],
           ),

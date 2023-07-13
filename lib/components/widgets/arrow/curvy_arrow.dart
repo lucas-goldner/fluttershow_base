@@ -5,10 +5,12 @@ class CurvyArrow extends StatefulWidget {
   const CurvyArrow(
     this.height,
     this.width, {
+    this.color,
     super.key,
   });
   final double width;
   final double height;
+  final Color? color;
 
   @override
   State<CurvyArrow> createState() => _CurvyArrowState();
@@ -19,32 +21,37 @@ class _CurvyArrowState extends State<CurvyArrow> {
   Widget build(BuildContext context) => ClipRect(
         child: CustomPaint(
           size: Size(widget.width, widget.height),
-          painter: ArrowPainter(),
+          painter: CurvyArrowPainter(widget.color),
         ),
       );
 }
 
-class ArrowPainter extends CustomPainter {
+class CurvyArrowPainter extends CustomPainter {
+  CurvyArrowPainter(this.color);
+  final Color? color;
+
   @override
   void paint(Canvas canvas, Size size) {
-    /// The arrows usually looks better with rounded caps.
     final paint = Paint()
-      ..color = Colors.black
       ..style = PaintingStyle.stroke
       ..strokeCap = StrokeCap.round
       ..strokeJoin = StrokeJoin.round
       ..strokeWidth = 8.0;
 
     {
-      var path = Path()
+      final path = Path()
         ..moveTo(size.width * 0.25, 60)
         ..relativeCubicTo(0, 0, size.width * 0.25, 50, size.width * 0.5, 0);
-      path = ArrowPath.addTip(path);
 
-      canvas.drawPath(path, paint..color = Colors.blue);
+      if (color != null) {
+        paint.color = color ?? Colors.black;
+      }
+
+      canvas.drawPath(ArrowPath.addTip(path), paint);
     }
   }
 
   @override
-  bool shouldRepaint(ArrowPainter oldDelegate) => false;
+  bool shouldRepaint(CurvyArrowPainter oldDelegate) =>
+      color != oldDelegate.color;
 }
