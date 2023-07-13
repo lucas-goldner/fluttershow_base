@@ -1,6 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
-import 'package:fluttershow_base/components/model/enum/page_directional_animations.dart';
+import 'package:fluttershow_base/components/model/enum/directional_animation_direction.dart';
 
 class DirectionalAnimation extends StatefulWidget {
   const DirectionalAnimation({
@@ -13,7 +13,7 @@ class DirectionalAnimation extends StatefulWidget {
   final Widget child;
   final int delay;
   final Curve _curve;
-  final PageDirectionalAnimations direction;
+  final DirectionalAnimationDirection direction;
 
   @override
   DirectionalAnimState createState() => DirectionalAnimState();

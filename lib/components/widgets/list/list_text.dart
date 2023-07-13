@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:fluttershow_base/components/model/animation_arguments.dart';
 import 'package:fluttershow_base/components/widgets/fluttershow_base_components.dart';
 import 'package:fluttershow_base/fluttershow_base.dart';
 
 class ListText extends StatelessWidget {
   const ListText({
     required this.texts,
-    required this.animationIndex,
+    this.animationIndex,
     this.animationArguments,
     this.style,
     this.textAlign,
@@ -36,22 +35,19 @@ class ListText extends StatelessWidget {
                   ? animationArguments != null
                       ? animationArguments?.animation.animateWidget(
                           Text(
+                            key: Key('AnimatedListTextItem-$index'),
                             bullet != null
                                 ? '${bullet?.uniCode} ${texts[index]}'
                                 : texts[index],
                             style: style,
                             textAlign: textAlign,
                           ),
-                          animationArguments: animationArguments ??
-                              AnimationArguments(
-                                animationArguments?.animation ??
-                                    Animations.fadeAnimation,
-                                delay: 0,
-                              ),
+                          animationArguments: animationArguments,
                         )
                       : FadeAnimation(
                           delay: 100,
                           child: Text(
+                            key: Key('DefaultAnimatedListTextItem-$index'),
                             bullet != null
                                 ? '${bullet?.uniCode} ${texts[index]}'
                                 : texts[index],
@@ -66,6 +62,7 @@ class ListText extends StatelessWidget {
           return Padding(
             padding: padding ?? EdgeInsets.zero,
             child: Text(
+              key: Key('ListTextItem-$index'),
               bullet != null
                   ? '${bullet?.uniCode} ${texts[index]}'
                   : texts[index],
