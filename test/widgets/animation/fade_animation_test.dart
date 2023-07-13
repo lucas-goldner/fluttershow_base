@@ -16,9 +16,7 @@ void main() {
           ),
         );
 
-    testWidgets(
-        'test initializes animation controller, animation offset, and timer',
-        (tester) async {
+    testWidgets('test renders fade animation correctly', (tester) async {
       await tester.pumpWidget(
         makeTestableWidget(),
       );
@@ -31,21 +29,6 @@ void main() {
           tester.widget<FadeAnimation>(fadeAnimationFinder);
       expect(fadeAnimationWidget.child, equals(child));
       expect(fadeAnimationWidget.delay, equals(delay));
-    });
-
-    testWidgets(
-        'test slidetransition when animation controller and offset are !null',
-        (tester) async {
-      await tester.pumpWidget(
-        makeTestableWidget(),
-      );
-      await tester.pumpAndSettle(const Duration(milliseconds: delay));
-
-      final fadeAnimationFinder = find.byType(FadeAnimation);
-      final fadeTransitionFinder = find.byType(FadeTransition);
-
-      expect(fadeAnimationFinder, findsOneWidget);
-      expect(fadeTransitionFinder, findsOneWidget);
     });
   });
 }

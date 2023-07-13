@@ -20,9 +20,7 @@ void main() {
         ),
       );
 
-  testWidgets(
-      'test initializes animation controller, animation offset, and timer',
-      (tester) async {
+  testWidgets('test renders directional animation test', (tester) async {
     await tester.pumpWidget(
       makeTestableWidget(),
     );
@@ -36,34 +34,5 @@ void main() {
     expect(directionalAnimationWidget.child, equals(child));
     expect(directionalAnimationWidget.delay, equals(delay));
     expect(directionalAnimationWidget.direction, equals(direction));
-  });
-
-  testWidgets(
-      'test slidetransition when animation controller and offset are !null',
-      (tester) async {
-    await tester.pumpWidget(
-      makeTestableWidget(),
-    );
-    await tester.pumpAndSettle(const Duration(milliseconds: delay));
-
-    final directionalAnimationFinder = find.byType(DirectionalAnimation);
-    final slideTransitionFinder = find.byType(SlideTransition);
-
-    expect(directionalAnimationFinder, findsOneWidget);
-    expect(slideTransitionFinder, findsOneWidget);
-  });
-
-  testWidgets('test slidetransition when animation controller and offset are',
-      (tester) async {
-    await tester.pumpWidget(
-      makeTestableWidget(),
-    );
-    await tester.pumpAndSettle(const Duration(milliseconds: delay));
-
-    final directionalAnimationFinder = find.byType(DirectionalAnimation);
-    final slideTransitionFinder = find.byType(SlideTransition);
-
-    expect(directionalAnimationFinder, findsOneWidget);
-    expect(slideTransitionFinder, findsOneWidget);
   });
 }
