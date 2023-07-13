@@ -12,7 +12,11 @@ enum Animations {
   }) {
     switch (this) {
       case Animations.fadeAnimation:
-        return FadeAnimation(delay: animationArguments.delay, child: child);
+        return FadeAnimation(
+          delay: animationArguments.delay,
+          curve: animationArguments.curve,
+          child: child,
+        );
       case Animations.directionalAnimation:
         return DirectionalAnimation(
           delay: animationArguments.delay,
