@@ -51,26 +51,34 @@ const verticalPadding32 = EdgeInsets.symmetric(vertical: 32);
 /// A constant EdgeInsets object representing vertical padding of 48.
 const verticalPadding48 = EdgeInsets.symmetric(vertical: 48);
 
-/// A constant EdgeInsets object representing equal padding of 2 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 2 in all directions.
 const allPadding2 = EdgeInsets.all(2);
 
-/// A constant EdgeInsets object representing equal padding of 4 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 4 in all directions.
 const allPadding4 = EdgeInsets.all(4);
 
-/// A constant EdgeInsets object representing equal padding of 8 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 8 in all directions.
 const allPadding8 = EdgeInsets.all(8);
 
-/// A constant EdgeInsets object representing equal padding of 12 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 12 in all directions.
 const allPadding12 = EdgeInsets.all(12);
 
-/// A constant EdgeInsets object representing equal padding of 16 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 16 in all directions.
 const allPadding16 = EdgeInsets.all(16);
 
-/// A constant EdgeInsets object representing equal padding of 24 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 24 in all directions.
 const allPadding24 = EdgeInsets.all(24);
 
-/// A constant EdgeInsets object representing equal padding of 32 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 32 in all directions.
 const allPadding32 = EdgeInsets.all(32);
 
-/// A constant EdgeInsets object representing equal padding of 48 in all directions.
+/// A constant EdgeInsets object representing
+/// equal padding of 48 in all directions.
 const allPadding48 = EdgeInsets.all(48);

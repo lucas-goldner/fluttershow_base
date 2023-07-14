@@ -14,7 +14,8 @@ class AnimatableWrapper extends StatelessWidget {
   /// [indexToShowAt] is the optional index at which the child
   /// should become visible. This is required if [animationIndex] is set.
   ///
-  /// [animationArguments] is the optional animation arguments for the child animation.
+  /// [animationArguments] is the optional animation arguments
+  ///  for the child animation.
   const AnimatableWrapper(
     this.child, {
     this.animationIndex,
