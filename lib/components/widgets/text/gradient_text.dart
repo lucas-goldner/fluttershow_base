@@ -1,6 +1,14 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 
+/// A widget that displays text with a gradient effect.
 class GradientText extends StatelessWidget {
+  /// Constructs a GradientText widget.
+  ///
+  /// [text] is the text to be displayed.
+  ///
+  /// [gradient] is the gradient applied to the text.
+  ///
+  /// [style] is the optional text style to be applied.
   const GradientText(
     this.text, {
     required this.gradient,
@@ -8,9 +16,14 @@ class GradientText extends StatelessWidget {
     this.style,
   });
 
+  /// The text to be displayed.
   final String text;
-  final TextStyle? style;
+
+  /// The gradient applied to the text.
   final Gradient gradient;
+
+  /// The optional text style to be applied.
+  final TextStyle? style;
 
   @override
   Widget build(BuildContext context) => ShaderMask(

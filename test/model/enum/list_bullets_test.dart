@@ -7,11 +7,11 @@ void main() {
   });
 
   test('test circle_big returns correct Unicode character', () {
-    expect(ListBullets.circle_big.uniCode, equals('\u25CF'));
+    expect(ListBullets.circleBig.uniCode, equals('\u25CF'));
   });
 
   test('test circle_outline returns correct Unicode character', () {
-    expect(ListBullets.circle_outline.uniCode, equals('\u25E6'));
+    expect(ListBullets.circleOutline.uniCode, equals('\u25E6'));
   });
 
   test('test square returns correct Unicode character', () {
@@ -19,7 +19,7 @@ void main() {
   });
 
   test('test square_mini returns correct Unicode character', () {
-    expect(ListBullets.square_mini.uniCode, equals('\u2219'));
+    expect(ListBullets.squareMini.uniCode, equals('\u2219'));
   });
 
   test('test triangle returns correct Unicode character', () {
