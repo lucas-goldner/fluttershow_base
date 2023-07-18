@@ -83,7 +83,7 @@ class CodeDisplay extends StatelessWidget {
               getTextStyle(commentTextStyle, codeColorTheme?.commentColor),
           baseStyle: getTextStyle(baseTextStyle, codeColorTheme?.baseColor),
           classStyle:
-              getTextStyle(commentTextStyle, codeColorTheme?.commentColor),
+              getTextStyle(commentTextStyle, codeColorTheme?.classColor),
           keywordStyle:
               getTextStyle(keywordTextStyle, codeColorTheme?.keywordColor),
           stringStyle:

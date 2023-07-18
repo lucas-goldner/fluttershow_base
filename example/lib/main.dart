@@ -90,9 +90,8 @@ const _DartCodeViewerPage(this.code);
   }
   }
 """,
-                  height: 1050,
                   width: 700,
-                  codeColorTheme: CodeDisplayColorThemes.night3024,
+                  codeColorTheme: CodeDisplayColorThemes.cobalt,
                   padding: allPadding16,
                   boxDecoration: BoxDecoration(
                     color: Colors.red,
