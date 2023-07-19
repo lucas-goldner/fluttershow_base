@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:fluttershow_base/components/widgets/wrapper/code_display.dart';
 
+/// Enum for themes that can be set in the [CodeDisplay] widget.
+/// Themes are recreacted as similiar as possible from https://carbon.now.sh/
 enum CodeDisplayColorThemes {
-  // Themes from https://carbon.now.sh/
-
+  /// Night Owl theme
   night3024(
     Color(0xFF0D0702),
     Color(0xFFCC9E53),
@@ -12,6 +14,8 @@ enum CodeDisplayColorThemes {
     Color(0xFFFFE73F),
     Color(0xFFFFFFFF),
   ),
+
+  /// A11y Dark theme
   a11yDark(
     Color(0xFF262626),
     Color(0xFFD1C9A5),
@@ -21,6 +25,8 @@ enum CodeDisplayColorThemes {
     Color(0xFFFFCF39),
     Color(0xFFCECECE),
   ),
+
+  /// Blackboard theme
   blackboard(
     Color(0xFF0D121D),
     Color(0xFFA09FA0),
@@ -30,213 +36,261 @@ enum CodeDisplayColorThemes {
     Color(0xFF3ABD46),
     Color(0xFFCECECE),
   ),
+
+  /// Base 16 theme
   base16Dark(
-    Color.fromRGBO(21, 21, 21, 1),
-    Color.fromRGBO(139, 74, 50, 1),
-    Color.fromRGBO(130, 157, 86, 1),
-    Color.fromRGBO(79, 149, 170, 1),
-    Color.fromRGBO(175, 57, 59, 1),
-    Color.fromRGBO(253, 181, 114, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF151515),
+    Color(0xFF8B4A32),
+    Color(0xFF829D56),
+    Color(0xFF4F95AA),
+    Color(0xFFAF393B),
+    Color(0xFFFDB572),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Base 16 light theme
   base16Light(
-    Color.fromRGBO(243, 243, 243, 1),
-    Color.fromRGBO(139, 74, 50, 1),
-    Color.fromRGBO(130, 157, 86, 1),
-    Color.fromRGBO(79, 149, 170, 1),
-    Color.fromRGBO(175, 57, 59, 1),
-    Color.fromRGBO(253, 181, 114, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFFF3F3F3),
+    Color(0xFF8B4A32),
+    Color(0xFF829D56),
+    Color(0xFF4F95AA),
+    Color(0xFFAF393B),
+    Color(0xFFFDB572),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Cobalt theme
   cobalt(
-    Color.fromRGBO(0, 32, 54, 1),
-    Color.fromRGBO(0, 107, 204, 1),
-    Color.fromRGBO(114, 248, 248, 1),
-    Color.fromRGBO(114, 248, 248, 1),
-    Color.fromRGBO(255, 233, 130, 1),
-    Color.fromRGBO(0, 200, 53, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF002036),
+    Color(0xFF006BCC),
+    Color(0xFF72F8F8),
+    Color(0xFF72F8F8),
+    Color(0xFFFFE982),
+    Color(0xFF00C835),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Dracula Pro theme
   draculaPro(
-    Color.fromRGBO(31, 30, 38, 1),
-    Color.fromRGBO(107, 102, 154, 1),
-    Color.fromRGBO(100, 252, 130, 1),
-    Colors.white,
-    Color.fromRGBO(252, 118, 178, 1),
-    Color.fromRGBO(244, 243, 128, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF1F1E26),
+    Color(0xFF6B669A),
+    Color(0xFF64FC82),
+    Color(0xFFFFFFFF),
+    Color(0xFFFC76B2),
+    Color(0xFFF4F380),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Duotone theme
   duotone(
-    Color.fromRGBO(37, 35, 45, 1),
-    Color.fromRGBO(94, 91, 116, 1),
-    Color.fromRGBO(255, 196, 148, 1),
-    Color.fromRGBO(100, 91, 219, 1),
-    Color.fromRGBO(255, 196, 148, 1),
-    Color.fromRGBO(245, 167, 106, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF25232D),
+    Color(0xFF5E5B74),
+    Color(0xFFFFC494),
+    Color(0xFF645BDB),
+    Color(0xFFFFC494),
+    Color(0xFFF5A76A),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Hopscotch theme
   hopscotch(
-    Color.fromRGBO(45, 37, 43, 1),
-    Color.fromRGBO(181, 47, 23, 1),
-    Color.fromRGBO(126, 183, 71, 1),
-    Color.fromRGBO(3, 128, 170, 1),
-    Color.fromRGBO(233, 62, 69, 1),
-    Color.fromRGBO(255, 195, 94, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF2D252B),
+    Color(0xFFB52F17),
+    Color(0xFF7EB747),
+    Color(0xFF0380AA),
+    Color(0xFFE93E45),
+    Color(0xFFFFC35E),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Lucario theme
   lucario(
-    Color.fromRGBO(33, 55, 69, 1),
-    Color.fromRGBO(58, 142, 192, 1),
-    Colors.white,
-    Colors.white,
-    Color.fromRGBO(233, 62, 69, 1),
-    Color.fromRGBO(223, 205, 115, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF213745),
+    Color(0xFF3A8EC0),
+    Color(0xFFFFFFFF),
+    Color(0xFFFFFFFF),
+    Color(0xFFE93E45),
+    Color(0xFFDFCD73),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Material theme
   material(
-    Color.fromRGBO(33, 55, 69, 1),
-    Color.fromRGBO(67, 98, 109, 1),
-    Color.fromRGBO(98, 170, 249, 1),
-    Color.fromRGBO(96, 196, 188, 1),
-    Color.fromRGBO(183, 131, 211, 1),
-    Color.fromRGBO(174, 216, 133, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF213745),
+    Color(0xFF43626D),
+    Color(0xFF62AAF9),
+    Color(0xFF60C4BC),
+    Color(0xFFB783D3),
+    Color(0xFFAED885),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Monokai theme
   monokai(
-    Color.fromRGBO(35, 36, 31, 1),
-    Color.fromRGBO(102, 96, 81, 1),
-    Color.fromRGBO(255, 255, 255, 1),
-    Color.fromRGBO(114, 246, 244, 1),
-    Color.fromRGBO(255, 39, 102, 1),
-    Color.fromRGBO(232, 212, 117, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF23241F),
+    Color(0xFF666051),
+    Color(0xFFFFFFFF),
+    Color(0xFF72F6F4),
+    Color(0xFFFF2766),
+    Color(0xFFE8D475),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Nightowl theme
   nightowl(
-    Color.fromRGBO(0, 22, 34, 1),
-    Color.fromRGBO(79, 88, 99, 1),
-    Color.fromRGBO(100, 162, 248, 1),
-    Color.fromRGBO(100, 162, 248, 1),
-    Color.fromRGBO(194, 137, 223, 1),
-    Color.fromRGBO(232, 180, 132, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF001622),
+    Color(0xFF4F5863),
+    Color(0xFF64A2F8),
+    Color(0xFF64A2F8),
+    Color(0xFFC289DF),
+    Color(0xFFE8B484),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Nord theme
   nord(
-    Color.fromRGBO(39, 46, 55, 1),
-    Color.fromRGBO(79, 88, 99, 1),
-    Color.fromRGBO(109, 183, 199, 1),
-    Color.fromRGBO(109, 183, 199, 1),
-    Color.fromRGBO(103, 144, 172, 1),
-    Color.fromRGBO(150, 181, 133, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF272E37),
+    Color(0xFF4F5863),
+    Color(0xFF6DB7C7),
+    Color(0xFF6DB7C7),
+    Color(0xFF6790AC),
+    Color(0xFF96B585),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Oeceanic Next theme
   oceanicNext(
-    Color.fromRGBO(39, 46, 55, 1),
-    Color.fromRGBO(86, 103, 113, 1),
-    Color.fromRGBO(255, 255, 255, 1),
-    Color.fromRGBO(255, 255, 255, 1),
-    Color.fromRGBO(192, 137, 184, 1),
-    Color.fromRGBO(150, 181, 133, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF272E37),
+    Color(0xFF566771),
+    Color(0xFFFFFFFF),
+    Color(0xFFFFFFFF),
+    Color(0xFFC089B8),
+    Color(0xFF96B585),
+    Color(0xFFD2D1D2),
   ),
+
+  /// One Light theme
   oneLight(
-    Color.fromRGBO(249, 249, 249, 1),
-    Color.fromRGBO(164, 165, 170, 1),
-    Color.fromRGBO(235, 97, 107, 1),
-    Color.fromRGBO(242, 76, 68, 1),
-    Color.fromRGBO(192, 137, 184, 1),
-    Color.fromRGBO(52, 149, 77, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFFF9F9F9),
+    Color(0xFFA4A5AA),
+    Color(0xFFEB616B),
+    Color(0xFFF24C44),
+    Color(0xFFC089B8),
+    Color(0xFF34954D),
+    Color(0xFFD2D1D2),
   ),
+
+  /// One Dark theme
   oneDark(
-    Color.fromRGBO(35, 39, 45, 1),
-    Color.fromRGBO(80, 89, 100, 1),
-    Color.fromRGBO(226, 94, 104, 1),
-    Color.fromRGBO(226, 94, 104, 1),
-    Color.fromRGBO(192, 137, 184, 1),
-    Color.fromRGBO(134, 183, 116, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF23272D),
+    Color(0xFF505964),
+    Color(0xFFE25E68),
+    Color(0xFFE25E68),
+    Color(0xFFC089B8),
+    Color(0xFF86B774),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Panda theme
   panda(
-    Color.fromRGBO(36, 37, 38, 1),
-    Color.fromRGBO(91, 96, 108, 1),
-    Color.fromRGBO(255, 174, 106, 1),
-    Color.fromRGBO(255, 145, 183, 1),
-    Color.fromRGBO(251, 107, 166, 1),
-    Color.fromRGBO(2, 237, 204, 1),
-    Color.fromRGBO(210, 209, 210, 1),
+    Color(0xFF242526),
+    Color(0xFF5B606C),
+    Color(0xFFFFAE6A),
+    Color(0xFFFF91B7),
+    Color(0xFFFB6BA6),
+    Color(0xFF02EDCC),
+    Color(0xFFD2D1D2),
   ),
+
+  /// Paraiso theme
   paraiso(
-    Color.fromRGBO(43, 28, 40, 1),
-    Color.fromRGBO(242, 97, 154, 1),
-    Color.fromRGBO(14, 172, 125, 1),
-    Color.fromRGBO(2, 169, 224, 1),
-    Color.fromRGBO(238, 82, 76, 1),
-    Color.fromRGBO(254, 185, 57, 1),
-    Color.fromRGBO(155, 150, 147, 1),
+    Color(0xFF2B1C28),
+    Color(0xFFF2619A),
+    Color(0xFF0EAC7D),
+    Color(0xFF02A9E0),
+    Color(0xFFEE524C),
+    Color(0xFFFEB939),
+    Color(0xFF9B9693),
   ),
+
+  /// Setti theme
   seti(
-    Color.fromRGBO(21, 23, 23, 1),
-    Color.fromRGBO(50, 69, 76, 1),
-    Color.fromRGBO(25, 173, 211, 1),
-    Color.fromRGBO(151, 108, 183, 1),
-    Color.fromRGBO(231, 193, 105, 1),
-    Color.fromRGBO(254, 185, 57, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFF151717),
+    Color(0xFF32454C),
+    Color(0xFF19ADD3),
+    Color(0xFF976CB7),
+    Color(0xFFE7C169),
+    Color(0xFFFEB939),
+    Color(0xFFB7BBBA),
   ),
+
+  /// Shades of purple theme
   shadesOfPurple(
-    Color.fromRGBO(37, 39, 73, 1),
-    Color.fromRGBO(169, 93, 242, 1),
-    Color.fromRGBO(118, 255, 254, 1),
-    Color.fromRGBO(118, 255, 254, 1),
-    Color.fromRGBO(254, 145, 43, 1),
-    Color.fromRGBO(138, 252, 144, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFF252749),
+    Color(0xFFA95DF2),
+    Color(0xFF76FFFE),
+    Color(0xFF76FFFE),
+    Color(0xFFFE912B),
+    Color(0xFF8AFC90),
+    Color(0xFFB7BBBA),
   ),
+
+  /// Solarized Dark theme
   solarizedDark(
-    Color.fromRGBO(0, 38, 47, 1),
-    Color.fromRGBO(69, 95, 102, 1),
-    Color.fromRGBO(112, 134, 136, 1),
-    Color.fromRGBO(182, 124, 35, 1),
-    Color.fromRGBO(208, 65, 32, 1),
-    Color.fromRGBO(116, 135, 37, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFF00262F),
+    Color(0xFF455F66),
+    Color(0xFF708688),
+    Color(0xFFB67C23),
+    Color(0xFFD04120),
+    Color(0xFF748725),
+    Color(0xFFB7BBBA),
   ),
+
+  /// Solarized Light theme
   solarizedLight(
-    Color.fromRGBO(255, 244, 225, 1),
-    Color.fromRGBO(69, 95, 102, 1),
-    Color.fromRGBO(112, 134, 136, 1),
-    Color.fromRGBO(182, 124, 35, 1),
-    Color.fromRGBO(208, 65, 32, 1),
-    Color.fromRGBO(116, 135, 37, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFFFFF4E1),
+    Color(0xFF455F66),
+    Color(0xFF708688),
+    Color(0xFFB67C23),
+    Color(0xFFD04120),
+    Color(0xFF748725),
+    Color(0xFFB7BBBA),
   ),
+
+  /// Synthwave84 theme
   synthWave84(
-    Color.fromRGBO(38, 31, 50, 1),
-    Color.fromRGBO(87, 104, 157, 1),
-    Color.fromRGBO(255, 46, 159, 1),
-    Color.fromRGBO(255, 46, 159, 1),
-    Color.fromRGBO(228, 218, 208, 1),
-    Color.fromRGBO(254, 127, 63, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFF261F32),
+    Color(0xFF57689D),
+    Color(0xFFFF2E9F),
+    Color(0xFFFF2E9F),
+    Color(0xFFE4DAD0),
+    Color(0xFFFE7F3F),
+    Color(0xFFB7BBBA),
   ),
+
+  /// Twilight theme
   twilight(
-    Color.fromRGBO(20, 20, 20, 1),
-    Color.fromRGBO(100, 100, 100, 1),
-    Color.fromRGBO(78, 104, 131, 1),
-    Color.fromRGBO(78, 104, 131, 1),
-    Color.fromRGBO(251, 231, 148, 1),
-    Color.fromRGBO(129, 142, 98, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFF141414),
+    Color(0xFF646464),
+    Color(0xFF4E6883),
+    Color(0xFF4E6883),
+    Color(0xFFFBE794),
+    Color(0xFF818E62),
+    Color(0xFFB7BBBA),
   ),
+
+  /// Verminal theme
   verminal(
-    Color.fromRGBO(23, 26, 27, 1),
-    Color.fromRGBO(76, 85, 95, 1),
-    Color.fromRGBO(243, 139, 146, 1),
-    Color.fromRGBO(251, 251, 251, 1),
-    Color.fromRGBO(113, 205, 233, 1),
-    Color.fromRGBO(132, 180, 114, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFF171A1B),
+    Color(0xFF4C555F),
+    Color(0xFFF38B92),
+    Color(0xFFFBFBFB),
+    Color(0xFF71CDE9),
+    Color(0xFF84B472),
+    Color(0xFFB7BBBA),
   ),
+
+  /// VSCode theme
   vscode(
     Color(0xFF1C1C1C),
     Color(0xFF56894F),
@@ -246,23 +300,27 @@ enum CodeDisplayColorThemes {
     Color(0xFFD0850B),
     Color(0xFFCECECE),
   ),
+
+  /// Yeti theme
   yeti(
-    Color.fromRGBO(234, 231, 229, 1),
-    Color.fromRGBO(212, 197, 189, 1),
-    Color.fromRGBO(32, 175, 212, 1),
-    Color.fromRGBO(152, 108, 184, 1),
-    Color.fromRGBO(147, 175, 106, 1),
-    Color.fromRGBO(127, 185, 208, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFFEAE7E5),
+    Color(0xFFD4C5BD),
+    Color(0xFF20AFD4),
+    Color(0xFF986CB8),
+    Color(0xFF93AF6A),
+    Color(0xFF7FB9D0),
+    Color(0xFFB7BBBA),
   ),
+
+  /// Zenburn theme
   zenburn(
-    Color.fromRGBO(55, 55, 55, 1),
-    Color.fromRGBO(109, 144, 115, 1),
-    Color.fromRGBO(228, 165, 135, 1),
-    Color.fromRGBO(228, 165, 135, 1),
-    Color.fromRGBO(243, 217, 170, 1),
-    Color.fromRGBO(206, 136, 137, 1),
-    Color.fromRGBO(183, 187, 186, 1),
+    Color(0xFF373737),
+    Color(0xFF6D9073),
+    Color(0xFFE4A587),
+    Color(0xFFE4A587),
+    Color(0xFFF3D9AA),
+    Color(0xFFCE8889),
+    Color(0xFFB7BBBA),
   ),
   ;
 
