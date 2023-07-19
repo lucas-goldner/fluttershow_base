@@ -36,6 +36,10 @@ class CodeDisplay extends StatelessWidget {
 
   TextStyle getTextStyle(TextStyle? textStyle, Color? color) {
     if (textStyle != null && color != null) {
+      if (textStyle.color != null) {
+        return textStyle;
+      }
+
       return textStyle.copyWith(color: color);
     }
 
@@ -52,6 +56,10 @@ class CodeDisplay extends StatelessWidget {
 
   BoxDecoration getBoxDecoration(BoxDecoration? boxDecoration, Color? color) {
     if (boxDecoration != null && color != null) {
+      if (boxDecoration.color != null) {
+        return boxDecoration;
+      }
+
       return boxDecoration.copyWith(color: color);
     }
 
@@ -82,8 +90,7 @@ class CodeDisplay extends StatelessWidget {
           commentStyle:
               getTextStyle(commentTextStyle, codeColorTheme?.commentColor),
           baseStyle: getTextStyle(baseTextStyle, codeColorTheme?.baseColor),
-          classStyle:
-              getTextStyle(commentTextStyle, codeColorTheme?.classColor),
+          classStyle: getTextStyle(classTextStyle, codeColorTheme?.classColor),
           keywordStyle:
               getTextStyle(keywordTextStyle, codeColorTheme?.keywordColor),
           stringStyle:
