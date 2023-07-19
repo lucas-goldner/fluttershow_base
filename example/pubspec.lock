@@ -97,15 +97,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.0.5"
-  dart_code_viewer2:
+  dart_code_viewer_x:
     dependency: transitive
     description:
-      path: "."
-      ref: HEAD
-      resolved-ref: b8267a58c409d95a53a9810c4227a9f5d5ac3568
-      url: "https://github.com/lucas-goldner/dart_code_viewer2.git"
-    source: git
-    version: "1.0.1"
+      name: dart_code_viewer_x
+      sha256: "364928419374a48ee8715697244e9af12da51e3054bdcdbbce2ce5333078f68c"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.0.0"
   dart_internal:
     dependency: transitive
     description:
