@@ -158,7 +158,7 @@ enum CodeDisplayColorThemes {
     Color(0xFFD2D1D2),
   ),
 
-  /// Oeceanic Next theme
+  /// Oceanic Next theme
   oceanicNext(
     Color(0xFF272E37),
     Color(0xFF566771),
