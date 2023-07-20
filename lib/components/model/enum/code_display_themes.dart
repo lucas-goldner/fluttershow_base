@@ -322,6 +322,97 @@ enum CodeDisplayColorThemes {
     Color(0xFFCE8889),
     Color(0xFFB7BBBA),
   ),
+
+  /// The following themes were already included inside
+  /// of the `dart_code_viewer_x` package.
+
+  /// DartCodeViewer light theme
+  dartCodeViewerLight(
+    Color(0xFFF5F5F5),
+    Color(0xFFD81B60),
+    Color(0xFF37474F),
+    Color(0xFF9C27B0),
+    Color(0xFF3F51B5),
+    Color(0xFF388E3C),
+    Color(0xFF37474F),
+  ),
+
+  /// DartCodeViewer light alt theme
+  dartCodeViewerLightAlt(
+    Color(0xFFEEEEEE),
+    Color(0xFF999999),
+    Color(0xFF000000),
+    Color(0xFF673AB7),
+    Color(0xFF4285F4),
+    Color(0xFF0F9D58),
+    Color(0xFFA3A3A3),
+  ),
+
+  /// DartCodeViewer dark theme
+  dartCodeViewerDark(
+    Color(0xFF212121),
+    Color(0xFFF06292),
+    Color(0xFFECEFF1),
+    Color(0xFFCE93D8),
+    Color(0xFF4DD0E1),
+    Color(0xFF9CCC65),
+    Color(0xFFA3A3A3),
+  ),
+
+  /// DartCodeViewer dark alt theme
+  dartCodeViewerDarkAlt(
+    Color(0xFF000000),
+    Color(0xFFAAAAAA),
+    Color(0xFFFFFFFF),
+    Color(0xFFFF8A65),
+    Color(0xFF7BAAF7),
+    Color(0xFF57BB8A),
+    Color(0xFFA3A3A3),
+  ),
+
+  /// DartCodeViewer design dark theme
+  dartCodeViewerDesignDark(
+    Color(0xFF263238),
+    Color(0xFF607D8B),
+    Color(0xFFFFFFFF),
+    Color(0xFFFF8A80),
+    Color(0xFF26C6DA),
+    Color(0xFF00BFA4),
+    Color(0xFF90A4AE),
+  ),
+
+  /// DartCodeViewer Google IO 2017 theme
+  dartCodeViewerio17(
+    Color(0xFF263238),
+    Color(0xFFFF5CB4),
+    Color(0xFFFFFFFF),
+    Color(0xFFFF8857),
+    Color(0xFF00E4FF),
+    Color(0xFF1CE8b5),
+    Color(0xFF90A4AE),
+  ),
+
+  /// DartCodeViewer Google IO 2019 theme
+  dartCodeViewerio19(
+    Color(0xFF202124),
+    Color(0xFF9AA0A6),
+    Color(0xFFFFFFFF),
+    Color(0xFFEE675C),
+    Color(0xFF669DF6),
+    Color(0xFF5BB974),
+    Color(0xFF9AA0A6),
+  ),
+
+  /// DartCodeViewer Flutter Interact 2019 theme
+  dartCodeViewerFlutterInteract19(
+    Color(0xFF241e30),
+    Color(0xFF808080),
+    Color(0xFFFAFBFB),
+    Color(0xFFD65BAD),
+    Color(0xFF1CDEC9),
+    Color(0xFFffa65c),
+    Color(0xFF8BE9FD),
+  ),
   ;
 
   const CodeDisplayColorThemes(
