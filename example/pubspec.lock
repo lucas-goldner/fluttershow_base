@@ -101,10 +101,10 @@ packages:
     dependency: transitive
     description:
       name: dart_code_viewer_x
-      sha256: "364928419374a48ee8715697244e9af12da51e3054bdcdbbce2ce5333078f68c"
+      sha256: eb8e1b12303b3f99d69423d85f4cbdde8dbb4c451caa4210a1e6dcb2568664e9
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.0"
+    version: "1.0.1"
   dart_internal:
     dependency: transitive
     description:

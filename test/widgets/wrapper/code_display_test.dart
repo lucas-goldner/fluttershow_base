@@ -14,6 +14,9 @@ void main() {
         print('Hello, world!');
       }
     ''';
+  const copyButtonReplacementToTest = SizedBox(
+    key: Key('CopyButton'),
+  );
 
   Widget makeTestableWidget({
     required String code,
@@ -21,6 +24,8 @@ void main() {
     BoxDecoration? boxDecoration,
     TextStyle? commentTextStyle,
     TextStyle? keywordTextStyle,
+    bool? showCopyButton,
+    Widget? copyButtonReplacement,
   }) =>
       MaterialApp(
         home: Scaffold(
@@ -30,6 +35,8 @@ void main() {
             boxDecoration: boxDecoration,
             commentTextStyle: commentTextStyle,
             keywordTextStyle: keywordTextStyle,
+            showCopyButton: showCopyButton,
+            copyButtonReplacement: copyButtonReplacement,
           ),
         ),
       );
@@ -120,6 +127,49 @@ void main() {
           color: CodeDisplayColorThemes.base16Light.backgroundColor,
         ),
       );
+    });
+  });
+
+  group('test copy button related cases', () {
+    testWidgets('test show default has no copy button', (tester) async {
+      await tester.pumpWidget(makeTestableWidget(code: codeToTest));
+
+      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
+      final copyButtonFinder = find.byKey(const Key('CopyButton'));
+      expect(containerFinder, findsOneWidget);
+      expect(copyButtonFinder, findsNothing);
+    });
+
+    testWidgets('test show copy button', (tester) async {
+      await tester.pumpWidget(
+        makeTestableWidget(
+          code: codeToTest,
+          showCopyButton: true,
+        ),
+      );
+
+      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
+      final copyButtonFinder = find.byType(ElevatedButton);
+      final copyTextFinder = find.text('COPY ALL');
+      expect(containerFinder, findsOneWidget);
+      expect(copyButtonFinder, findsOneWidget);
+      expect(copyTextFinder, findsOneWidget);
+    });
+
+    testWidgets('test show copy button with custom copy button',
+        (tester) async {
+      await tester.pumpWidget(
+        makeTestableWidget(
+          code: codeToTest,
+          showCopyButton: true,
+          copyButtonReplacement: copyButtonReplacementToTest,
+        ),
+      );
+
+      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
+      final copyButtonFinder = find.byKey(const Key('CopyButton'));
+      expect(containerFinder, findsOneWidget);
+      expect(copyButtonFinder, findsOneWidget);
     });
   });
 }

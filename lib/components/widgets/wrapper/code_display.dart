@@ -16,6 +16,9 @@ class CodeDisplay extends StatelessWidget {
   /// The [width] and [height] parameters can be used
   /// to set the dimensions of the widget.
   ///
+  /// The [showCopyButton] parameter is used
+  /// for deciding if the copy button should be shown.
+  ///
   /// The [boxDecoration] parameter allows customizing
   /// the box decoration of the code display.
   ///
@@ -30,6 +33,8 @@ class CodeDisplay extends StatelessWidget {
     this.codeColorTheme,
     this.width,
     this.height,
+    this.showCopyButton,
+    this.copyButtonReplacement,
     this.boxDecoration,
     this.commentTextStyle,
     this.baseTextStyle,
@@ -46,6 +51,13 @@ class CodeDisplay extends StatelessWidget {
 
   /// The formatted code.
   final String _formatedCode;
+
+  /// Determines if copy for code button should be shown.
+  final bool? showCopyButton;
+
+  /// If `showCopyButton` is set, by default an elevated button will be shown.
+  /// To provide a custom copy copy button, this property can be used.
+  final Widget? copyButtonReplacement;
 
   /// The height of the code display.
   final double? height;
@@ -111,30 +123,35 @@ class CodeDisplay extends StatelessWidget {
   }
 
   @override
-  Widget build(BuildContext context) => Container(
-        key: const Key('CodeDisplayContainer'),
-        padding: padding,
-        decoration: getBoxDecoration(
-          boxDecoration,
-          codeColorTheme?.backgroundColor,
-        ),
-        child: DartCodeViewer(
-          _formatedCode,
-          width: width,
-          height: height,
-          showCopyButton: false,
-          backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
-          commentStyle:
-              getTextStyle(commentTextStyle, codeColorTheme?.commentColor),
-          baseStyle: getTextStyle(baseTextStyle, codeColorTheme?.baseColor),
-          classStyle: getTextStyle(classTextStyle, codeColorTheme?.classColor),
-          keywordStyle:
-              getTextStyle(keywordTextStyle, codeColorTheme?.keywordColor),
-          stringStyle:
-              getTextStyle(stringTextStyle, codeColorTheme?.stringColor),
-          punctuationStyle: getTextStyle(
-            punctuationTextStyle,
-            codeColorTheme?.punctuationColor,
+  Widget build(BuildContext context) => Center(
+        child: Container(
+          key: const Key('CodeDisplayContainer'),
+          padding: padding,
+          decoration: getBoxDecoration(
+            boxDecoration,
+            codeColorTheme?.backgroundColor,
+          ),
+          child: DartCodeViewer(
+            _formatedCode,
+            width: width,
+            height: height,
+            showCopyButton: showCopyButton ?? false,
+            displayCopyNotification: false,
+            copyButtonReplacement: copyButtonReplacement,
+            backgroundColor: const Color.fromRGBO(0, 0, 0, 0),
+            commentStyle:
+                getTextStyle(commentTextStyle, codeColorTheme?.commentColor),
+            baseStyle: getTextStyle(baseTextStyle, codeColorTheme?.baseColor),
+            classStyle:
+                getTextStyle(classTextStyle, codeColorTheme?.classColor),
+            keywordStyle:
+                getTextStyle(keywordTextStyle, codeColorTheme?.keywordColor),
+            stringStyle:
+                getTextStyle(stringTextStyle, codeColorTheme?.stringColor),
+            punctuationStyle: getTextStyle(
+              punctuationTextStyle,
+              codeColorTheme?.punctuationColor,
+            ),
           ),
         ),
       );

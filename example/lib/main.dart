@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:fluttershow_base/components/model/enum/code_display_themes.dart';
 import 'package:fluttershow_base/components/widgets/fluttershow_base_components.dart';
@@ -12,13 +13,11 @@ void main() {
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return CupertinoApp(
       debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text('FlutterShow Base Components'),
-        ),
-        body: SingleChildScrollView(
+      home: CupertinoPageScaffold(
+        backgroundColor: Colors.white,
+        child: SingleChildScrollView(
           child: Center(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
@@ -98,6 +97,25 @@ final _plainTextCode = _richTextCode.toPlainText();
                   boxDecoration: BoxDecoration(
                     borderRadius: BorderRadius.all(
                       Radius.circular(12),
+                    ),
+                  ),
+                  showCopyButton: true,
+                  copyButtonReplacement: Align(
+                    alignment: Alignment.topRight,
+                    child: DecoratedBox(
+                      decoration: BoxDecoration(
+                        color: CodeDisplayColorThemes.shadesOfPurple.baseColor,
+                        borderRadius: BorderRadius.circular(8),
+                      ),
+                      child: Padding(
+                        padding: allPadding16,
+                        child: Text(
+                          'Copy',
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ),
                   ),
                 )
