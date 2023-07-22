@@ -4,6 +4,17 @@ import 'package:fluttershow_base/components/model/enum/code_display_themes.dart'
 import 'package:fluttershow_base/components/widgets/wrapper/code_display.dart';
 
 void main() {
+  final boxDecorationToTest = BoxDecoration(
+    color: Colors.yellow,
+    borderRadius: BorderRadius.circular(8),
+  );
+  const codeToTest = '''
+      // This is a comment
+      void main() {
+        print('Hello, world!');
+      }
+    ''';
+
   Widget makeTestableWidget({
     required String code,
     CodeDisplayColorThemes? codeColorTheme,
@@ -24,37 +35,22 @@ void main() {
       );
 
   testWidgets('test widget displays formatted code', (tester) async {
-    const code = '''
-      void main() {
-        print('Hello, world!');
-      }
-    ''';
-
     await tester.pumpWidget(
-      makeTestableWidget(code: code),
+      makeTestableWidget(code: codeToTest),
     );
 
+    expect(find.textContaining('// This is a comment'), findsOneWidget);
     expect(find.textContaining('void main()'), findsOneWidget);
     expect(find.textContaining("print('Hello, world!');"), findsOneWidget);
   });
 
   testWidgets('test widget applies custom styles and decorations',
       (tester) async {
-    const code = '''
-      // This is a comment
-      void main() {
-        print('Hello, world!');
-      }
-    ''';
-
     await tester.pumpWidget(
       makeTestableWidget(
-        code: code,
+        code: codeToTest,
         codeColorTheme: CodeDisplayColorThemes.base16Light,
-        boxDecoration: BoxDecoration(
-          color: Colors.yellow,
-          borderRadius: BorderRadius.circular(8),
-        ),
+        boxDecoration: boxDecorationToTest,
         commentTextStyle: const TextStyle(fontStyle: FontStyle.italic),
         keywordTextStyle: const TextStyle(fontWeight: FontWeight.bold),
       ),
@@ -65,10 +61,7 @@ void main() {
     final container = tester.widget<Container>(containerFinder);
     expect(
       container.decoration,
-      BoxDecoration(
-        color: Colors.yellow,
-        borderRadius: BorderRadius.circular(8),
-      ),
+      boxDecorationToTest,
     );
 
     final codeDisplayFinder = find.byType(CodeDisplay);
@@ -79,30 +72,31 @@ void main() {
   });
 
   group('test getBoxDecoration() specific cases', () {
-    testWidgets('test widget with boxdecoration without specific color',
-        (tester) async {
-      const code = '''
-      // This is a comment
-      void main() {
-        print('Hello, world!');
-      }
-    ''';
-
+    Future<void> makeBoxDecorationTestableWidget(
+      WidgetTester tester, {
+      BoxDecoration? boxDecoration,
+    }) async {
       await tester.pumpWidget(
         makeTestableWidget(
-          code: code,
+          code: codeToTest,
           codeColorTheme: CodeDisplayColorThemes.base16Light,
-          boxDecoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(8),
-          ),
-          commentTextStyle: const TextStyle(fontStyle: FontStyle.italic),
-          keywordTextStyle: const TextStyle(fontWeight: FontWeight.bold),
+          boxDecoration: boxDecoration,
+        ),
+      );
+    }
+
+    testWidgets('test widget with boxdecoration without specific color',
+        (tester) async {
+      await makeBoxDecorationTestableWidget(
+        tester,
+        boxDecoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(8),
         ),
       );
 
       final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
-      expect(containerFinder, findsOneWidget);
       final container = tester.widget<Container>(containerFinder);
+      expect(containerFinder, findsOneWidget);
       expect(
         container.decoration,
         BoxDecoration(
@@ -113,25 +107,13 @@ void main() {
     });
 
     testWidgets('test widget without boxdecoration', (tester) async {
-      const code = '''
-      // This is a comment
-      void main() {
-        print('Hello, world!');
-      }
-    ''';
-
-      await tester.pumpWidget(
-        makeTestableWidget(
-          code: code,
-          codeColorTheme: CodeDisplayColorThemes.base16Light,
-          commentTextStyle: const TextStyle(fontStyle: FontStyle.italic),
-          keywordTextStyle: const TextStyle(fontWeight: FontWeight.bold),
-        ),
+      await makeBoxDecorationTestableWidget(
+        tester,
       );
 
       final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
-      expect(containerFinder, findsOneWidget);
       final container = tester.widget<Container>(containerFinder);
+      expect(containerFinder, findsOneWidget);
       expect(
         container.decoration,
         BoxDecoration(

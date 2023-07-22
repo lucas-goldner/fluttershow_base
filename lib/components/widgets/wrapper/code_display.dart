@@ -39,13 +39,13 @@ class CodeDisplay extends StatelessWidget {
     this.punctuationTextStyle,
     this.padding,
     super.key,
-  }) : formatedCode = formatCode(code);
+  }) : _formatedCode = formatCode(code);
 
   /// The code to be displayed.
   final String code;
 
   /// The formatted code.
-  final String formatedCode;
+  final String _formatedCode;
 
   /// The height of the code display.
   final double? height;
@@ -119,7 +119,7 @@ class CodeDisplay extends StatelessWidget {
           codeColorTheme?.backgroundColor,
         ),
         child: DartCodeViewer(
-          formatedCode,
+          _formatedCode,
           width: width,
           height: height,
           showCopyButton: false,
