@@ -4,6 +4,7 @@ import 'package:fluttershow_base/components/model/enum/code_display_themes.dart'
 import 'package:fluttershow_base/components/widgets/fluttershow_base_components.dart';
 import 'package:fluttershow_base/components/widgets/spacing/margins.dart';
 import 'package:fluttershow_base/components/widgets/spacing/paddings.dart';
+import 'package:fluttershow_base/components/widgets/wrapper/brightness_wrapper.dart';
 import 'package:fluttershow_base/components/widgets/wrapper/code_display.dart';
 
 void main() {
@@ -14,9 +15,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return CupertinoApp(
+      theme: CupertinoThemeData(brightness: Brightness.light),
       debugShowCheckedModeBanner: false,
       home: CupertinoPageScaffold(
-        backgroundColor: Colors.white,
         child: SingleChildScrollView(
           child: Center(
             child: Column(
@@ -36,6 +37,10 @@ class MyApp extends StatelessWidget {
                     ],
                   ),
                   style: TextStyle(fontSize: 100),
+                ),
+                BrightnessWrapper(
+                  lightThemeChild: Text("LightMode"),
+                  darkThemeChild: Text("DarkMode"),
                 ),
                 CodeDisplay(
                   """
@@ -118,7 +123,7 @@ final _plainTextCode = _richTextCode.toPlainText();
                       ),
                     ),
                   ),
-                )
+                ),
               ],
             ),
           ),
