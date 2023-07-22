@@ -18,6 +18,8 @@ void main() {
     key: Key('CopyButton'),
   );
 
+  final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
+
   Widget makeTestableWidget({
     required String code,
     CodeDisplayColorThemes? codeColorTheme,
@@ -63,7 +65,6 @@ void main() {
       ),
     );
 
-    final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
     expect(containerFinder, findsOneWidget);
     final container = tester.widget<Container>(containerFinder);
     expect(
@@ -101,7 +102,6 @@ void main() {
         ),
       );
 
-      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
       final container = tester.widget<Container>(containerFinder);
       expect(containerFinder, findsOneWidget);
       expect(
@@ -118,7 +118,6 @@ void main() {
         tester,
       );
 
-      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
       final container = tester.widget<Container>(containerFinder);
       expect(containerFinder, findsOneWidget);
       expect(
@@ -134,7 +133,6 @@ void main() {
     testWidgets('test show default has no copy button', (tester) async {
       await tester.pumpWidget(makeTestableWidget(code: codeToTest));
 
-      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
       final copyButtonFinder = find.byKey(const Key('CopyButton'));
       expect(containerFinder, findsOneWidget);
       expect(copyButtonFinder, findsNothing);
@@ -148,7 +146,6 @@ void main() {
         ),
       );
 
-      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
       final copyButtonFinder = find.byType(ElevatedButton);
       final copyTextFinder = find.text('COPY ALL');
       expect(containerFinder, findsOneWidget);
@@ -166,7 +163,6 @@ void main() {
         ),
       );
 
-      final containerFinder = find.byKey(const Key('CodeDisplayContainer'));
       final copyButtonFinder = find.byKey(const Key('CopyButton'));
       expect(containerFinder, findsOneWidget);
       expect(copyButtonFinder, findsOneWidget);
