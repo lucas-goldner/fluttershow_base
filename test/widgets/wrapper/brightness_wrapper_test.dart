@@ -10,6 +10,8 @@ void main() {
     const Widget darkmodeChild = SizedBox(
       key: Key('DarkMode'),
     );
+    final lightModeFinder = find.byKey(const Key('LightMode'));
+    final darkModeFinder = find.byKey(const Key('DarkMode'));
 
     Widget makeTestableWidget(
       Brightness brightness,
@@ -32,9 +34,6 @@ void main() {
         ),
       );
 
-      final lightModeFinder = find.byKey(const Key('LightMode'));
-      final darkModeFinder = find.byKey(const Key('DarkMode'));
-
       expect(lightModeFinder, findsOneWidget);
       expect(darkModeFinder, findsNothing);
     });
@@ -46,9 +45,6 @@ void main() {
           Brightness.dark,
         ),
       );
-
-      final lightModeFinder = find.byKey(const Key('LightMode'));
-      final darkModeFinder = find.byKey(const Key('DarkMode'));
 
       expect(lightModeFinder, findsNothing);
       expect(darkModeFinder, findsOneWidget);
