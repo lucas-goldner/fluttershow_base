@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttershow_base/components/widgets/fluttershow_base_components.dart';
 import 'package:fluttershow_base/components/widgets/spacing/margins.dart';
-import 'package:fluttershow_base/components/widgets/wrapper/brightness_wrapper.dart';
 
 void main() {
   runApp(MyApp());
@@ -35,10 +34,6 @@ class MyApp extends StatelessWidget {
                     ],
                   ),
                   style: TextStyle(fontSize: 100),
-                ),
-                BrightnessWrapper(
-                  lightThemeChild: Text("LightMode"),
-                  darkThemeChild: Text("DarkMode"),
                 )
               ],
             ),
