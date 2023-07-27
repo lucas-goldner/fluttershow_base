@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:fluttershow_base/components/widgets/wrapper/brightness_wrapper.dart';
@@ -13,7 +14,7 @@ void main() {
     final lightModeFinder = find.byKey(const Key('LightMode'));
     final darkModeFinder = find.byKey(const Key('DarkMode'));
 
-    Widget makeTestableWidget(
+    Widget makeTestableMaterialWidget(
       Brightness brightness,
     ) =>
         MaterialApp(
@@ -26,28 +27,73 @@ void main() {
           ),
         );
 
-    testWidgets('test returns lightmode child when brightness is light',
-        (tester) async {
-      await tester.pumpWidget(
-        makeTestableWidget(
-          Brightness.light,
-        ),
-      );
+    Widget makeTestableCupertinoWidget(
+      Brightness brightness,
+    ) =>
+        CupertinoApp(
+          theme: CupertinoThemeData(brightness: brightness),
+          home: const CupertinoPageScaffold(
+            child: BrightnessWrapper(
+              lightThemeChild: lightmodeChild,
+              darkThemeChild: darkmodeChild,
+            ),
+          ),
+        );
 
-      expect(lightModeFinder, findsOneWidget);
-      expect(darkModeFinder, findsNothing);
+    group('Test for materialapp', () {
+      testWidgets(
+          'test material returns lightmode child when brightness is light',
+          (tester) async {
+        await tester.pumpWidget(
+          makeTestableMaterialWidget(
+            Brightness.light,
+          ),
+        );
+
+        expect(lightModeFinder, findsOneWidget);
+        expect(darkModeFinder, findsNothing);
+      });
+
+      testWidgets(
+          'test material returns darkmode child when brightness is dark',
+          (tester) async {
+        await tester.pumpWidget(
+          makeTestableMaterialWidget(
+            Brightness.dark,
+          ),
+        );
+
+        expect(lightModeFinder, findsNothing);
+        expect(darkModeFinder, findsOneWidget);
+      });
     });
 
-    testWidgets('test returns darkmode child when brightness is dark',
-        (tester) async {
-      await tester.pumpWidget(
-        makeTestableWidget(
-          Brightness.dark,
-        ),
-      );
+    group('Test for cupertinoapp', () {
+      testWidgets(
+          'test cupertino returns lightmode child when brightness is light',
+          (tester) async {
+        await tester.pumpWidget(
+          makeTestableCupertinoWidget(
+            Brightness.light,
+          ),
+        );
 
-      expect(lightModeFinder, findsNothing);
-      expect(darkModeFinder, findsOneWidget);
+        expect(lightModeFinder, findsOneWidget);
+        expect(darkModeFinder, findsNothing);
+      });
+
+      testWidgets(
+          'test cupertino returns darkmode child when brightness is dark',
+          (tester) async {
+        await tester.pumpWidget(
+          makeTestableCupertinoWidget(
+            Brightness.dark,
+          ),
+        );
+
+        expect(lightModeFinder, findsNothing);
+        expect(darkModeFinder, findsOneWidget);
+      });
     });
   });
 }

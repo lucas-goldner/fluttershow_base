@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 /// The `BrightnessWrapper` is a versatile widget engineered to dynamically
@@ -27,9 +28,15 @@ class BrightnessWrapper extends StatelessWidget {
   /// Specifies the widget to be displayed when the theme is dark.
   final Widget darkThemeChild;
 
+  Brightness _getBrightness(BuildContext context) =>
+      CupertinoTheme.of(context).brightness == Brightness.dark ||
+              Theme.of(context).brightness == Brightness.dark
+          ? Brightness.dark
+          : Brightness.light;
+
   @override
-  Widget build(BuildContext context) => switch (Theme.of(context).brightness) {
-        Brightness.dark => darkThemeChild,
-        Brightness.light => lightThemeChild,
-      };
+  Widget build(BuildContext context) =>
+      _getBrightness(context) == Brightness.dark
+          ? darkThemeChild
+          : lightThemeChild;
 }

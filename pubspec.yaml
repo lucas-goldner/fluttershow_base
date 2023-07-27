@@ -1,7 +1,7 @@
 name: fluttershow_base
 description: Foundation library that defines base components used for FlutterShow framework and other packages like FlutterShow Keynote.
 version: 1.0.1
-homepage: https://github.com/lucas-goldner/FlutterShow
+homepage: https://github.com/lucas-goldner/fluttershow_base
 
 environment:
   sdk: ">=3.0.3 <4.0.0"
@@ -9,6 +9,8 @@ environment:
 
 dependencies:
   arrow_path: ^3.1.0
+  dart_code_viewer_x: ^1.0.1
+  dart_style: ^2.3.2
   flutter:
     sdk: flutter
 
