@@ -222,23 +222,24 @@ LF:6
 LH:6
 end_of_record
 SF:lib/components/widgets/wrapper/animatable_wrapper.dart
-DA:19,1
-DA:26,1
-DA:43,1
+DA:18,1
+DA:25,1
+DA:42,1
+DA:44,1
 DA:45,1
 DA:46,1
-DA:47,1
+DA:48,1
 DA:49,1
 DA:50,1
-DA:51,1
-DA:52,3
+DA:51,3
+DA:52,1
 DA:53,1
-DA:54,1
-DA:56,1
-DA:60,1
+DA:55,1
+DA:59,1
 LF:14
 LH:14
 end_of_record
+<<<<<<< HEAD
 SF:lib/components/helper/format_code.dart
 DA:10,2
 DA:11,2
@@ -294,3 +295,5 @@ DA:153,2
 LF:30
 LH:30
 end_of_record
+=======
+>>>>>>> 8fe13cd8cd7e4d4de73d4978642676977255b577
