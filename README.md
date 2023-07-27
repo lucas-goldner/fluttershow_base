@@ -7,4 +7,5 @@
 
 ## Description
 
-A foundational library that encompasses numerous common components found in presentation software such as Keynote and Google Slides. This library serves as a core implementation, supporting projects like https://github.com/lucas-goldner/FlutterShow and other associated packages.
+A foundational library that encompasses numerous common components found in presentation software such as Keynote and Google Slides.\
+This library serves as a core implementation, supporting projects like https://github.com/lucas-goldner/FlutterShow and other associated packages.
