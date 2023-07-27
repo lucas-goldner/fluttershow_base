@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttershow_base/components/model/cubic_bezier.dart';
 import 'package:fluttershow_base/components/model/enum/code_display_themes.dart';
 import 'package:fluttershow_base/components/widgets/fluttershow_base_components.dart';
 import 'package:fluttershow_base/components/widgets/spacing/margins.dart';
@@ -27,7 +28,33 @@ class MyApp extends StatelessWidget {
                 verticalMargin16,
                 Arrow(),
                 verticalMargin8,
-                CurvyArrow(100, 100),
+                CurvyArrow(
+                  100,
+                  500,
+                  strokeWidth: 4.0,
+                  cubicBezier: CubicBezier(
+                    x1: 0,
+                    y1: 40,
+                    x2: 0.25,
+                    y2: 30,
+                    x3: 0.5,
+                    y3: -20,
+                  ),
+                ),
+                CurvyArrow(
+                  100,
+                  300,
+                  strokeWidth: 3.0,
+                  color: Colors.red,
+                  cubicBezier: CubicBezier(
+                    x1: 10,
+                    y1: -40,
+                    x2: 0.5,
+                    y2: -30,
+                    x3: 0.5,
+                    y3: 20,
+                  ),
+                ),
                 GradientText(
                   "GradientText",
                   gradient: LinearGradient(
