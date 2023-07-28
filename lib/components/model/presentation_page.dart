@@ -19,7 +19,8 @@ class PresentationSlide {
   /// [slideWidget] is the widget that represents the content of the slide.
   ///
   /// [animationSteps] is the number of times a slide can be clicked
-  /// before switching to the next slide in the presentation. Default value is 1.
+  /// before switching to the next slide in the presentation.
+  /// Default value is 1.
   ///
   /// [title] is an optional parameter that represents the slide's title
   /// in the menu. If no title is provided, it will default to `Slide-{index}`.
