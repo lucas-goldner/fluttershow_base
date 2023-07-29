@@ -9,5 +9,8 @@ export 'layout/layout_body.dart';
 export 'layout/layout_footer.dart';
 export 'layout/layout_header.dart';
 export 'list/list_text.dart';
+export 'presentation/fading_presentation.dart';
+export 'presentation/page_builder_presentation.dart';
+export 'presentation/scaling_presentation.dart';
 export 'text/gradient_text.dart';
 export 'wrapper/animatable_wrapper.dart';
