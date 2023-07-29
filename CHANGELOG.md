@@ -1,3 +1,9 @@
+## 1.1.1
+
+- feat: Add new presentation types such as fading and scaling.
+- feat: Add more customization parameters to gradient text.
+- doc: Add topics and documentation.
+
 ## 1.1.0
 
 - feat: Add **new** code display widget, show code directly. It supports multiple themes!
